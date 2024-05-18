@@ -1,0 +1,71 @@
+<div class="flex justify-center items-center h-max px-20 py-10">
+    <div
+        class="flex flex-col items-center border border-gray-300 rounded-2xl shadow-lg pl-10 pr-10 pt-10 mb-10 mt-10"
+    >
+        <!-- <p class="w-full pb-4 text-left text-3xl font-bold text-blue-300">
+            {{ JOIN_APP }}
+        </p> -->
+        <form [formGroup]="form" (ngSubmit)="register($event)" class="mb-8">
+            <app-form-input
+                label="{{ FIRST_NAME }}"
+                formControlName="first_name"
+                [parentForm]="form"
+                placeholder="John"
+                [formSubmitted]="formSubmitted"
+            ></app-form-input>
+
+            <app-form-input
+                label="{{ LAST_NAME }}"
+                formControlName="last_name"
+                [parentForm]="form"
+                placeholder="Doe"
+                [formSubmitted]="formSubmitted"
+            ></app-form-input>
+
+            <app-form-input
+                label="{{ EMAIL }}"
+                formControlName="email"
+                [parentForm]="form"
+                placeholder="Name@example.com"
+                [formSubmitted]="formSubmitted"
+            ></app-form-input>
+
+            <app-form-input
+                label="{{ PASSWORD }}"
+                formControlName="password"
+                [parentForm]="form"
+                placeholder="**************"
+                [formSubmitted]="formSubmitted"
+            ></app-form-input>
+
+            <app-form-input
+                label="{{ CONFIRM_PASSWORD }}"
+                formControlName="confirm_password"
+                [parentForm]="form"
+                placeholder="**************"
+                [formSubmitted]="formSubmitted"
+            ></app-form-input>
+
+            <button
+                type="submit"
+                class="w-full mt-2 h-12 bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+                {{ REGISTER }}
+            </button>
+        </form>
+
+        <div class="flex gap-4">
+            <p>{{ YES_ACCOUNT }}</p>
+            <a href="/login" class="text-blue-300">{{ LOG_IN }}</a>
+        </div>
+        <p
+            [ngClass]="{
+                'text-green-600': message === 'Login successful!',
+                'text-red-600': message !== 'Login successful!'
+            }"
+            class="px-3 text-center mt-4 mb-10 w-96 break-normal text-bold"
+        >
+            {{ message }}
+        </p>
+    </div>
+</div>

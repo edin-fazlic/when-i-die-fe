@@ -1,0 +1,31 @@
+<div class="flex flex-col mb-4">
+    <div class="relative">
+        <ng-container>
+            <label
+                class="font-bold pb-2"
+            >
+                {{ label }}
+            </label>
+            <input
+                #inputField
+                [type]="isPassword ? 'password' : 'text'"
+                [formControl]="formControl"
+                [placeholder]="placeholder"
+                class="bg-blue-50 rounded-md px-3 py-4 w-full"
+                (focus)="isFocused = true"
+                (blur)="isFocused = false"
+            />
+            <button
+                *ngIf="isPassword"
+                mat-icon-button
+                class="absolute inset-y-0 right-0 h-full flex items-center px-6 pt-6 text-gray-600"
+                (click)="togglePasswordVisibility(inputField)"
+            >
+                <mat-icon>
+                    {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+            </button>
+        </ng-container>
+
+    </div>
+</div>
