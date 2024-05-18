@@ -5,6 +5,8 @@ import {Route} from "./constants/routes";
 import {AppComponent} from "./app.component";
 import { LoginComponent } from './features/login/login.component';
 import { RegistrationComponent } from './features/registration/registration.component';
+import { MessagesComponent } from './features/messages/messages.component'; 
+import { MessageFormComponent } from './features/message-form/message-form.component'; 
 import {HomepageComponent} from "./homepage/homepage.component";
 import {SettingsComponent} from "./settings/settings.component";
 
@@ -47,11 +49,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: AppComponent
+        component: MessagesComponent
+      },
+      {
+        path: Route.newMessage,
+        component: MessageFormComponent
       },
       {
         path: Route.messageDetails,
         component: AppComponent
+      },
+      {
+        path: Route.messageEdit + "/:id",
+        component: MessageFormComponent
       },
     ]
   },

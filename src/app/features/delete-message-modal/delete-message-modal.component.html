@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Delete Message</h2>
+<mat-dialog-content>
+  Would you like to delete this message?
+</mat-dialog-content>
+<mat-dialog-actions class="flex gap-4 ml-8 items-center">
+  <div class="pl-4">
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+  </div>
+  <div>
+    <button
+      mat-button
+      class="text-red-600"
+      (click)="onConfirmClick()"
+      cdkFocusInitial
+    >
+      Delete
+    </button>
+  </div>
+</mat-dialog-actions>
