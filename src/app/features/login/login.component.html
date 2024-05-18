@@ -1,0 +1,50 @@
+<div class="flex justify-center items-center min-h-screen px-20 py-10">
+    <div
+        class="flex flex-col items-center border border-gray-300 rounded-2xl shadow-lg pt-10 pr-12 pl-10 pb-20"
+    >
+        <p class="w-full pb-4 text-left text-3xl font-bold text-blue-300">
+            {{ APP_NAME }}
+        </p>
+        <form [formGroup]="form" (ngSubmit)="login()" class="mb-8">
+            <div class="flex flex-col mb-4">
+                <label class="font-bold pb-2">{{ EMAIL }}</label>
+                <input
+                    type="text"
+                    formControlName="username"
+                    placeholder="Name@example.com"
+                    class="bg-blue-50 rounded-md px-3 py-4 w-80"
+                />
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="font-bold pb-2">{{ PASSWORD }}</label>
+                <input
+                    type="password"
+                    formControlName="password"
+                    placeholder="**************"
+                    class="bg-blue-50 rounded-md px-3 py-4 w-80"
+                />
+            </div>
+            <button
+                type="submit"
+                class="w-full mt-8 h-12 bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+                {{ LOG_IN }}
+            </button>
+        </form>
+
+        <div class="flex gap-4">
+            <p>{{ NO_ACCOUNT }}</p>
+            <a href="/register" class="text-blue-300">{{ REGISTER }}</a>
+        </div>
+
+        <p
+            class="mt-8 font-bold {{
+                message === 'Login successful!'
+                    ? 'text-green-500'
+                    : 'text-red-500'
+            }}"
+        >
+            {{ message }}
+        </p>
+    </div>
+</div>
