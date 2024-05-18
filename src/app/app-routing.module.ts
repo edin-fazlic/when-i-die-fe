@@ -5,6 +5,8 @@ import {Route} from "./constants/routes";
 import {AppComponent} from "./app.component";
 import { LoginComponent } from './features/login/login.component';
 import { RegistrationComponent } from './features/registration/registration.component';
+import {HomepageComponent} from "./homepage/homepage.component";
+import {SettingsComponent} from "./settings/settings.component";
 
 const routes: Routes = [
   {
@@ -17,11 +19,11 @@ const routes: Routes = [
   },
   {
     path: Route.settings,
-    component: AppComponent
+    component: SettingsComponent
   },
   {
     path: Route.home,
-    component: AppComponent
+    component: HomepageComponent
   },
   {
     path: Route.tp,
