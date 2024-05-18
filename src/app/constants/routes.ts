@@ -6,9 +6,9 @@ export enum Route {
   home= 'home',
   messages= 'messages',
   newMessage = 'new',
-  messageDetails= 'messageDetails',
+  messageDetails= 'message_details',
   tp= 'tp',
-  tpDetails= 'tpDetails',
-  tpEdit= 'tpEdit',
-  theyTrustMe= 'theyTrustMe'
+  tpDetails= 'tp_details',
+  tpEdit= 'tp_edit',
+  theyTrustMe= 'they_trust_me'
 }

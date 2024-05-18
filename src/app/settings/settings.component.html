@@ -1,0 +1,62 @@
+<div class="min-h-screen flex flex-col">
+  <!-- Title and Navigation -->
+  <div class="flex justify-between items-center p-4 border-b border-gray-300">
+    <h1 class="text-3xl font-bold text-blue-300">When I Die FYI</h1>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="logout()">
+      Log Out
+    </button>
+  </div>
+
+  <div class="flex flex-col items-center justify-center flex-grow px-10 py-20">
+    <div class="w-full max-w-4xl">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Profile Details</h2>
+        <form [formGroup]="settingsForm" (ngSubmit)="saveChanges()">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col">
+              <label class="font-bold pb-2">Name</label>
+              <input type="text" formControlName="name" placeholder="Name" class="bg-blue-50 rounded-md px-3 py-4 w-full" />
+            </div>
+            <div class="flex flex-col">
+              <label class="font-bold pb-2">Surname</label>
+              <input type="text" formControlName="surname" placeholder="Surname" class="bg-blue-50 rounded-md px-3 py-4 w-full" />
+            </div>
+            <div class="flex flex-col">
+              <label class="font-bold pb-2">Email</label>
+              <input type="email" formControlName="email" placeholder="Email" class="bg-gray-200 rounded-md px-3 py-4 w-full" disabled />
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4"> How do we confirm you passed away? </h2>
+            <div class="flex flex-col gap-4">
+              <mat-radio-group formControlName="passedAwayConfirmType">
+                <mat-radio-button value="confirmationByOthers">Confirmation by other people</mat-radio-button>
+                <mat-radio-button value="inactivity">Inactivity</mat-radio-button>
+                <mat-radio-button value="timer">Timer</mat-radio-button>
+              </mat-radio-group>
+              <div *ngIf="settingsForm.get('passedAwayConfirmType').value === 'inactivity'" class="mt-2">
+                <label class="font-bold pb-2">Days of Inactivity</label>
+                <input type="number" formControlName="daysOfInactivity" placeholder="Number of days" class="bg-blue-50 rounded-md px-3 py-4 w-full" />
+              </div>
+
+              <div *ngIf="settingsForm.get('passedAwayConfirmType').value ==='timer'" class="mt-2">
+                <label class="font-bold pb-2">Date</label>
+                <input type="date" formControlName="timerDate" class="bg-blue-50 rounded-md px-3 py-4 w-full" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mt-8">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Save
+            </button>
+            <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteProfile()">
+              Delete Profile
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
