@@ -12,6 +12,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {HomepageComponent} from "./homepage/homepage.component";
 import { SettingsComponent } from './settings/settings.component';
 import {MatRadioModule} from '@angular/material/radio'
+import {NavigateToService} from "./services/navigate-to.service";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import {MatRadioModule} from '@angular/material/radio'
     MatRadioModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    NavigateToService
   ],
   bootstrap: [AppComponent]
 })
