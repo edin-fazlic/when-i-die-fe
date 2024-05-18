@@ -5,7 +5,6 @@ import { GeneralConstants} from "../constants/general-constants";
 @Component({
   selector: 'app-home',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
   APP_NAME = GeneralConstants.APP_NAME;
