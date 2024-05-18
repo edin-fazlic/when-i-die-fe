@@ -1,0 +1,50 @@
+<div
+  class="overflow-hidden flex flex-col justify-center items-center min-h-screen px-20 py-10"
+>
+  <div class="text-center mb-4">
+    <h1 class="font-bold text-2xl">Messages</h1>
+  </div>
+
+  <button
+    routerLink="new"
+    class="flex items-center border rounded-xl p-2 m-4 border-zinc-950"
+  >
+    <mat-icon>add</mat-icon>
+    <p class="ml-2">New Message</p>
+  </button>
+
+  <div class="max-w-sm">
+    <div
+      *ngFor="let message of messages"
+      class="relative rounded overflow-hidden mb-4 border rounded-xl border-zinc-950"
+      style="height: 200px; width: 300px"
+    >
+      <div class="px-6 py-4 h-full">
+        <div class="font-bold text-xl mb-2 message-title">
+          {{ message.title }} #{{ message.id }}
+        </div>
+        <p>
+          To
+          {{
+            message.receivers ? message.receivers.join(", ") : "No recipients"
+          }}
+        </p>
+        <p
+          class="text-gray-700 text-base message-text"
+          style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"
+        >
+          {{ message.text }}
+        </p>
+      </div>
+      <div class="absolute bottom-2 left-2">
+        <button (click)="editMessage(message.id)" mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteMessage(message.id)" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="px-6 pt-4 pb-2"></div>
+    </div>
+  </div>
+</div>

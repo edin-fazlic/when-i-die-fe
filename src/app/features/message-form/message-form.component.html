@@ -1,0 +1,70 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4">
+      {{ isNewMessage ? "Create New Message" : "Edit Message" }}
+    </h2>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Title</mat-label>
+          <input matInput id="title" formControlName="title" />
+        </mat-form-field>
+        <div
+          *ngIf="messageForm.get('title').errors?.required"
+          class="text-red-500"
+        >
+          Title is required
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Content</mat-label>
+          <textarea matInput id="content" formControlName="content"></textarea>
+        </mat-form-field>
+        <div
+          *ngIf="messageForm.get('content').errors?.required"
+          class="text-red-500"
+        >
+          Content is required
+        </div>
+      </div>
+
+      <div formArrayName="recipients" class="mb-4">
+        <div
+          *ngFor="let recipientGroup of recipients.controls; let i = index"
+          class="mb-2"
+        >
+          <div [formGroupName]="i" class="flex items-center">
+            <mat-form-field appearance="fill" class="w-full mr-2">
+              <mat-label>Recipient</mat-label>
+              <input matInput type="text" formControlName="recipient" />
+            </mat-form-field>
+            <button
+              mat-icon-button
+              type="button"
+              (click)="removeRecipient(i)"
+              class="text-red-500"
+              [disabled]="recipients.controls.length === 1"
+            >
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button
+        mat-raised-button
+        type="button"
+        (click)="addRecipient()"
+        class="mb-4 w-full"
+      >
+        Add Recipient
+      </button>
+
+      <button mat-raised-button color="primary" type="submit" class="w-full">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
