@@ -10,21 +10,24 @@ import { RegistrationComponent } from './features/registration/registration.comp
 import { FormInputComponent } from './features/form-input/form-input.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {HomepageComponent} from "./homepage/homepage.component";
-
+import { SettingsComponent } from './settings/settings.component';
+import {MatRadioModule} from '@angular/material/radio'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     FormInputComponent,
-    HomepageComponent
+    HomepageComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatRadioModule,
   ],
   providers: [
     provideAnimationsAsync()
